@@ -1,0 +1,7 @@
+{
+  "name": "Loca_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
