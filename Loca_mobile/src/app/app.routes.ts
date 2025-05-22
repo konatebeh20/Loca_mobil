@@ -6,18 +6,33 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+
   {
-    path: 'login',
-    loadComponent: () => import('./auth/login/login.page').then(m => m.LoginPage)
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.routes').then(m => m.authRoutes)
   },
-  {
-    path: 'register',
-    loadComponent: () => import('./auth/register/register.page').then(m => m.RegisterPage)
-  },
-  {
-    path: 'forgot-password',
-    loadComponent: () => import('./auth/forgot-password/forgot-password.page').then(m => m.ForgotPasswordPage)
-  },
+
+
+  
+  
+  // {
+  //   path: 'auth',
+  //   loadComponent: () => import('./auth/auth.page').then( m => m.AuthPage)
+  // },
+  // {
+  //   path: 'login',
+  //   loadComponent: () => import('./auth/login/login.page').then(m => m.LoginPage)
+  // },
+  // {
+  //   path: 'register',
+  //   loadComponent: () => import('./auth/register/register.page').then(m => m.RegisterPage)
+  // },
+  // {
+  //   path: 'forgot-password',
+  //   loadComponent: () => import('./auth/forgot-password/forgot-password.page').then(m => m.ForgotPasswordPage)
+  // },
+
+
   {
     path: 'home',
     loadComponent: () => import('./main/home/home.page').then(m => m.HomePage)
@@ -40,11 +55,14 @@ export const routes: Routes = [
   // },
 
   
+
+
   // Route de fallback pour les pages non trouvées
   {
     path: '**',
     redirectTo: 'home'
-  }
+  },
+
 
 
   // {

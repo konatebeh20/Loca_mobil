@@ -1,0 +1,81 @@
+.welcome-content {
+  --background:linear-gradient(135deg, #141414 0%, #2c2c2c 100%);
+}
+
+.auth-container {
+  display:flex; padding:24px; height:100%; flex-direction:column; justify-content:space-between;
+}
+
+.logo-section {
+  display:flex; flex-direction:column; align-items:center; margin-top:15%;
+}
+
+.taxi-icon-container {
+  display:flex; width:100px; height:100px; border:2px solid #ffcc00; border-radius:20px; background-color:#1a1a1a; flex-direction:column; justify-content:center; align-items:center; margin-bottom:20px; box-shadow:0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.taxi-icon-container ion-icon {
+  font-size:48px; color:white;
+}
+
+.taxi-label {
+  color:#ffcc00; font-size:14px; font-weight:bold; margin-top:5px;
+}
+
+.welcome-title {
+  font-size:28px; font-weight:700; color:white; margin-bottom:8px; text-align:center;
+}
+
+.welcome-subtitle {
+  font-size:16px; color:#cccccc; margin-bottom:40px; text-align:center;
+}
+
+.action-buttons {
+  margin:0 auto; width:100%; max-width:320px; margin-bottom:10%;
+}
+
+.login-button {
+  height:52px; --background:#ffcc00; --color:#000000; margin-bottom:16px; font-weight:600; font-size:16px; --border-radius:12px; --box-shadow:0 4px 12px rgba(255, 204, 0, 0.3);
+}
+
+.register-button {
+  height:52px; --background:transparent; --color:#ffcc00; --border-color:#ffcc00; font-weight:600; font-size:16px; --border-radius:12px; margin-bottom:24px;
+}
+
+.guest-option {
+  text-align:center; margin-top:20px;
+}
+
+.guest-option a {
+  opacity:0.8; color:#ffffff; text-decoration:none; font-size:15px;
+}
+
+/* Animation pour l'apparition des éléments */
+.logo-section, .action-buttons {
+  animation:fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+
+  from {
+    opacity:0; transform:translateY(20px);
+  }
+
+  to {
+    opacity:1; transform:translateY(0);
+  }
+  
+}
+
+/* Pour les grands écrans */
+@media (min-height:700px) {
+
+  .logo-section {
+    margin-top:20%;
+  }
+
+  .action-buttons {
+    margin-bottom:15%;
+  }
+  
+}

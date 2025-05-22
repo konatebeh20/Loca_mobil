@@ -1,0 +1,83 @@
+:host {
+  display:block; height:100%;
+}
+
+ion-content {
+  --background:#ffffff;
+}
+
+ion-toolbar {
+  --background:#1a1a1a;
+}
+
+.taxi-logo {
+  display:flex; align-items:center; justify-content:center;
+}
+
+.taxi-icon {
+  font-size:24px; margin-right:5px;
+}
+
+.taxi-text {
+  font-weight:bold;
+}
+
+.login-container {
+  display:flex; padding:20px; height:100%; flex-direction:column;
+}
+
+.login-header {
+  display:flex; flex-direction:column; align-items:center; margin-bottom:20px; margin-top:20px;
+}
+
+.logo-container {
+  margin-bottom:20px;
+}
+
+.taxi-icon-container {
+  display:flex; margin:0 auto; width:80px; height:80px; border-radius:10px; background-color:#1a1a1a; flex-direction:column; justify-content:center; align-items:center;
+}
+
+.taxi-icon-container ion-icon {
+  font-size:36px; color:white;
+}
+
+.taxi-label {
+  color:white; font-size:12px; font-weight:bold; margin-top:5px;
+}
+
+.login-header h1 {
+  font-size:28px; font-weight:normal; margin-bottom:30px; color:#1a1a1a;
+}
+
+.login-form {
+  margin:0 auto; width:100%; max-width:400px;
+}
+
+.form-group {
+  margin-bottom:20px;
+}
+
+.form-group label {
+  display:block; color:#777; font-size:12px; margin-bottom:5px; font-weight:500;
+}
+
+ion-input {
+  border-radius:5px; --background:#f0f0f0; --padding-start:10px; --padding-end:10px; --padding-top:10px; --padding-bottom:10px; margin-top:5px;
+}
+
+.login-button {
+  height:44px; --background:#1a1a1a; --color:white; margin-top:15px; font-weight:500; text-transform:none;
+}
+
+.links {
+  display:flex; justify-content:space-between; margin-top:15px; font-size:14px; text-align:center;
+}
+
+.links a {
+  color:#777; text-decoration:none;
+}
+
+.links a:hover {
+  text-decoration:underline;
+}
