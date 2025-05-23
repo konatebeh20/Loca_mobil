@@ -1,0 +1,356 @@
+ion-header {
+  box-shadow: none !important;
+  --box-shadow: none;
+  border: none !important;
+  --border-width: 0px;
+  --border-color: transparent;
+  margin-top: 3%;
+}
+
+ion-toolbar {
+  box-shadow: none !important;
+  --box-shadow: none;
+  border: none !important;
+  --border-width: 0px;
+  --border-color: transparent;
+  --ion-border-color: transparent;
+  /* Si Ionic utilise une variable pour la bordure */
+}
+
+
+
+
+
+// #map-container {
+//   position: relative;
+//   height: 100%; /* La hauteur du conteneur de la carte */
+//   width: 100%; /* La largeur du conteneur de la carte */
+// }
+
+// #map {
+//   height: 100%;
+//   width: 100%;
+// }
+
+// /* Positionnement absolu du bouton */
+// .back-button {
+//   position: absolute;
+//   top: 10px; /* Décalage du bouton depuis le haut */
+//   left: 0px; /* Décalage du bouton depuis la gauche */
+//   z-index: 999; /* S'assurer que le bouton se trouve au-dessus de la carte */
+//   padding: 10px;
+//   --background: transparent;
+//   ion-icon {
+//     padding: 6px;
+//     background: #333333b8;
+//     border-radius: 50px;
+//     font-size: 24px;
+// }
+// }
+
+
+ion-content {
+  --background: transparent;
+  
+  #map {
+    height: 100vh;
+    width: 100vw;
+    background: #f0f0f0;
+  }
+}
+
+
+/* Conteneur principal de la carte */
+#map-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  /* Carte en arrière-plan */
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+#map-container,
+#map {
+  pointer-events: all !important;
+  z-index: 1;
+}
+
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  /* Décalage du bouton depuis le haut */
+  left: 0px;
+  /* Décalage du bouton depuis la gauche */
+  z-index: 999;
+  /* S'assurer que le bouton se trouve au-dessus de la carte */
+  padding: 10px;
+  --background: transparent;
+
+  ion-icon {
+    padding: 6px;
+    background: #333333b8;
+    border-radius: 50px;
+    font-size: 24px;
+  }
+}
+
+/* Boutons de zoom, localisation et rafraîchissement */
+.action-buttons-list {
+  pointer-events: auto;
+  position: absolute;
+  top: 10px;
+  /* Décalage depuis le haut */
+  right: 10px;
+  /* Décalage depuis la droite */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Espacement entre les boutons */
+  z-index: 999;
+  --background: transparent;
+
+}
+
+.action-button {
+  pointer-events: auto;
+  z-index: 999;
+  --background: transparent;
+}
+
+.action-button ion-icon {
+  padding: 6px;
+  background: #fff;
+  border-radius: 50px;
+  font-size: 24px;
+  color: #183440;
+}
+
+.map-footer {
+  padding: 10px;
+}
+
+.style-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.action-buttons-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+ion-modal::part(backdrop) {
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+ion-modal .ion-page {
+  pointer-events: none !important;
+}
+
+ion-modal .ion-page * {
+  pointer-events: all !important;
+}
+
+ion-modal {
+  pointer-events: none !important;
+}
+
+ion-searchbar {
+  position: relative;
+  top: 1%;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+
+/* Actions sur la carte */
+.map-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.style-menu {
+  position: absolute;
+  top: 90%;
+  right: 38px;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.block {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 10vh;
+}
+
+.vehicule-modal-block {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: 40px;
+}
+
+ion-list {
+  background: none;
+  width: 100%;
+}
+
+ion-item {
+  border-radius: 12px;
+  margin: 12px auto;
+  --background: #ededed;
+  align-items: center;
+  display: flex;
+  width: 96%;
+
+}
+
+ion-item ion-label h2 {
+  font-weight: bold;
+  font-size: 16px;
+  color: #1e1e2d;
+}
+
+ion-item ion-label p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.vehicle-type-display {
+  display: flex;
+  justify-content: flex-start;
+  /* Aligner horizontalement au début */
+  align-items: center;
+  /* Centrer verticalement */
+  width: 100%;
+  /* Assurez-vous que le conteneur prend toute la largeur */
+  padding-left: 16px;
+  /* Un peu d'espace depuis la gauche */
+  margin-bottom: 20px;
+}
+
+#vehicleType {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1e1e2d;
+}
+
+
+.modal-content {
+  padding: 20px;
+}
+
+.car_imag {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 50px;
+}
+
+.vehicle-details {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  top: 90px;
+}
+
+.vehicle-details h2 {
+  font-size: 1.5em;
+  margin-bottom: 3px;
+}
+
+.vehicle-details p {
+  color: gray;
+}
+
+.vehicle-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* Espace entre les éléments */
+  position: relative;
+  top: 90px;
+}
+
+.info-item {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  width: 100%;
+  background: #80808078;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+
+.close-modal {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  bottom: 100%;
+
+  ion-icon {
+    font-size: 1.5em;
+    color: #d9534f;
+  }
+}
+
+ion-thumbnail {
+  width: 100%;
+  height: 150px;
+  --border-radius: 14px;
+}
