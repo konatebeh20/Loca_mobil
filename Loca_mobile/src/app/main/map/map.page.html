@@ -4,6 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div id="map" style="height: 100vh; width: 100vw;"></div>
+<ion-content [fullscreen]="true" class="ion-no-padding">
+  <div class="map-container">
+    <div id="mapId" #mapContainer></div>
+  </div>
+  <!-- <div class="map-container">
+    <div id="mapId"></div>
+  </div> -->
+  <!-- <div id="mapId"></div> -->
 </ion-content>
