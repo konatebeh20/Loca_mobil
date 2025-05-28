@@ -1,3 +1,7 @@
+body {
+  margin:0; padding:0;
+}
+
 ion-content {
   --padding-start:0; --padding-end:0; --padding-top:0; --padding-bottom:0;
 }
@@ -8,7 +12,7 @@ ion-content {
 
 #mapId {
   /* Hauteur minimum pour éviter les problèmes */
-  position:relative !important; width:100% !important; height:100% !important; flex:1; z-index:1; min-height:400px;
+  width:100vw; position:relative !important; width:100% !important; height:100%; height:100% !important; flex:1; z-index:1; min-height:400px;
 }
 
 /* Fix pour les tuiles Leaflet */

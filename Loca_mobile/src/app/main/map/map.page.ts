@@ -134,10 +134,11 @@ export class MapPage implements OnInit, AfterViewInit, OnDestroy {
       updateWhenIdle: true
     }).addTo(this.map);
 
+    // Gestion du redimensionnement
     this.setupResizeHandling();
     this.mapInitialized = true;
 
-    
+    // Affichage initial des données
     setTimeout(() => this.updateMap(), 500);
     }
 
@@ -153,15 +154,9 @@ export class MapPage implements OnInit, AfterViewInit, OnDestroy {
 
   ionViewDidEnter() {
     setTimeout(() => {
-      if (this.isMapInitialized && this.map) {
-        // Forcer le recalcul de la taille plusieurs fois
+      if (this.map && this.isMapInitialized) {
         this.map.invalidateSize();
-        setTimeout(() => {
-          if (this.map) {
-            this.map.invalidateSize();
-          }
-        }, 200);
-      } else if (!this.isMapInitialized) {
+      } else {
         this.initializeMap();
       }
     }, 150);
@@ -171,78 +166,78 @@ export class MapPage implements OnInit, AfterViewInit, OnDestroy {
     // Nettoyer si nécessaire quand on quitte la page
   }
 
-  private async initializeMap() {
-    try {
-      await this.waitForElement('mapId');
+  // private async initializeMap() {
+  //   try {
+  //     await this.waitForElement('mapId');
 
 
-      // Vérifier que le conteneur existe
-      const mapElement = document.getElementById('mapId');
-      if (!mapElement) {
-        console.error('Map container not found!');
-        return;
-      }
+  //     // Vérifier que le conteneur existe
+  //     const mapElement = document.getElementById('mapId');
+  //     if (!mapElement) {
+  //       console.error('Map container not found!');
+  //       return;
+  //     }
 
 
-      mapElement.style.width = '100%';
-      mapElement.style.height = '100%';
-      mapElement.style.minHeight = '400px';
+  //     mapElement.style.width = '100%';
+  //     mapElement.style.height = '100%';
+  //     mapElement.style.minHeight = '400px';
 
-      await this.waitForDimensions(mapElement);
+  //     await this.waitForDimensions(mapElement);
 
-      if (this.map) {
-        this.map.off();
-        this.map.remove();
-      }
+  //     if (this.map) {
+  //       this.map.off();
+  //       this.map.remove();
+  //     }
 
-      // S'assurer que le conteneur a des dimensions
-      const rect = mapElement.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0) {
-        console.warn('Map container has no dimensions, retrying...');
-        setTimeout(() => this.initializeMap(), 200);
-        return;
-      }
+  //     // S'assurer que le conteneur a des dimensions
+  //     const rect = mapElement.getBoundingClientRect();
+  //     if (rect.width === 0 || rect.height === 0) {
+  //       console.warn('Map container has no dimensions, retrying...');
+  //       setTimeout(() => this.initializeMap(), 200);
+  //       return;
+  //     }
 
-      this.map = L.map('mapId', {
-        center: [5.3599, -4.0083],
-        zoom: 12,
-        zoomControl: true,
-        attributionControl: true,
-        preferCanvas: false, // Utiliser SVG au lieu de Canvas
-        renderer: L.svg() // Forcer le renderer SVG
-      });
+  //     this.map = L.map('mapId', {
+  //       center: [5.3599, -4.0083],
+  //       zoom: 12,
+  //       zoomControl: true,
+  //       attributionControl: true,
+  //       preferCanvas: false, // Utiliser SVG au lieu de Canvas
+  //       renderer: L.svg() // Forcer le renderer SVG
+  //     });
 
-      // Ajouter les tuiles avec des options optimisées
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors',
-        tileSize: 256,
-        detectRetina: true,
-        updateWhenIdle: false,
-        updateWhenZooming: false,
-        keepBuffer: 2
-      }).addTo(this.map);
+  //     // Ajouter les tuiles avec des options optimisées
+  //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //       maxZoom: 19,
+  //       attribution: '© OpenStreetMap contributors',
+  //       tileSize: 256,
+  //       detectRetina: true,
+  //       updateWhenIdle: false,
+  //       updateWhenZooming: false,
+  //       keepBuffer: 2
+  //     }).addTo(this.map);
 
 
-      setTimeout(() => {
-        if (this.map) {
-          this.map.invalidateSize();
-        }
-      }, 100);
+  //     setTimeout(() => {
+  //       if (this.map) {
+  //         this.map.invalidateSize();
+  //       }
+  //     }, 100);
 
-      this.map.on('click', (e: L.LeafletMouseEvent) => this.handleMapClick(e));
+  //     this.map.on('click', (e: L.LeafletMouseEvent) => this.handleMapClick(e));
 
-      this.isMapInitialized = true;
-      console.log('Map initialized successfully');
+  //     this.isMapInitialized = true;
+  //     console.log('Map initialized successfully');
 
-      // Charger les données CSV après l'initialisation de la carte
-      this.loadCSVData();
+  //     // Charger les données CSV après l'initialisation de la carte
+  //     this.loadCSVData();
       
-    } catch (error) {
-      console.error('Error initializing map:', error);
-      setTimeout(() => this.initializeMap(), 1000);
-    }
-  }
+  //   } catch (error) {
+  //     console.error('Error initializing map:', error);
+  //     setTimeout(() => this.initializeMap(), 1000);
+  //   }
+  // }
 
   private waitForElement(elementId: string): Promise<void> {
     return new Promise((resolve) => {
